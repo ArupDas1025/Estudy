@@ -73,6 +73,7 @@ exports.login = async (req, res) => {
     // ✅ send cookie
     res.cookie("token", token, {
       httpOnly: true,
+      secure: false, sameSite: "lax",
     });
 
     // ✅ IMPORTANT: send role to frontend

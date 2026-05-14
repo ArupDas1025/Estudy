@@ -32,214 +32,217 @@ function Home() {
   }, []);
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
 
-      {/* 🔥 NEW HERO SECTION (ADDED) */}
+      {/* 🔥 HERO SECTION */}
       <div style={{
-        background: "linear-gradient(135deg, #0f172a, #1e293b)",
+        padding: "80px 20px",
+        background: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
         color: "#fff",
-        padding: "60px 20px",
-        borderRadius: "10px",
-        marginBottom: "30px"
+        textAlign: "center"
       }}>
-        <div style={{
-          maxWidth: "1100px",
-          margin: "auto",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-between"
-        }}>
+        <h1 style={{ fontSize: "40px" }}>
+          Learning Today <br /> Leading Tomorrow
+        </h1>
+        <p>India's #1 Online Learning Platform 🚀</p>
 
-          {/* LEFT */}
-          <div style={{ maxWidth: "500px" }}>
-            <h1 style={{ fontSize: "40px" }}>
-              Learning Today <br /> Leading Tomorrow
-            </h1>
-
-            <p style={{ marginTop: "10px" }}>
-              Learn CSE, Data Science & Aptitude from India's top educators 🚀
-            </p>
-
-            {/* 📱 INPUT */}
-            <div style={{ display: "flex", marginTop: "20px", gap: "10px" }}>
-              <input
-                type="text"
-                placeholder="Enter mobile number"
-                style={{
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "none"
-                }}
-              />
-              <button style={{
-                background: "#22c55e",
-                color: "#fff",
-                border: "none",
-                padding: "10px 15px",
-                borderRadius: "5px",
-                cursor: "pointer"
-              }}>
-                Get Link
-              </button>
-            </div>
-
-            <button style={{
-              marginTop: "15px",
-              background: "#2563eb",
-              color: "#fff",
-              border: "none",
-              padding: "10px 20px",
+        {/* 📱 MOBILE INPUT */}
+        <div style={{ marginTop: "20px" }}>
+          <input
+            type="text"
+            placeholder="Enter mobile number"
+            style={{
+              padding: "10px",
+              width: "250px",
               borderRadius: "5px",
-              cursor: "pointer"
-            }}>
-              Download App
-            </button>
-          </div>
-
-          {/* RIGHT IMAGE */}
-          <img
-            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-            alt="learning"
-            style={{ width: "350px", borderRadius: "10px" }}
+              border: "none"
+            }}
           />
+          <button style={{
+            marginLeft: "10px",
+            padding: "10px 20px",
+            background: "orange",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer"
+          }}>
+            Get App Link
+          </button>
         </div>
       </div>
 
-
-
-             {/* 🏆 EXPLORE BY EXAMS (NEW SECTION) */}
-      <h2 style={{ marginTop: "50px" }}>Explore by Exams</h2>
+      {/* 📚 COURSES */}
+      <div style={{ padding: "20px" }}>
+        <h2>🔥 Featured Courses</h2>
 
         <div style={{
           display: "flex",
-          gap: "15px",
-          flexWrap: "wrap",
-          marginTop: "20px"
+          gap: "20px",
+          flexWrap: "wrap"
         }}>
-          {[
-            "GATE",
-            "",
-            "",
-            "Teaching",
-            "  ",
-            "",
-            "",
-            " "
-          ].map((exam, i) => (
-            <div key={i} style={{
-              padding: "15px 20px",
-              background: "#fff",
+          {courses.map(course => (
+            <div key={course.id} style={{
+              width: "250px",
               border: "1px solid #ddd",
               borderRadius: "10px",
-              cursor: "pointer",
-              boxShadow: "0 2px 6px rgba(0,0,0,0.1)"
+              overflow: "hidden",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
             }}>
-              {exam}
+              <img
+                src={course.image}
+                alt={course.title}
+                style={{ width: "100%", height: "150px", objectFit: "cover" }}
+              />
+              <div style={{ padding: "10px" }}>
+                <h4>{course.title}</h4>
+                <p>👨‍🏫 {course.instructor}</p>
+              </div>
             </div>
           ))}
         </div>
+      </div>
 
-      {/* 📚 COURSES */}
-      <h2>Featured Courses</h2>
+      {/* 🎯 EXPLORE BY EXAMS */}
+      <div style={{ padding: "20px", background: "#f8f8f8" }}>
+        <h2>🎯 Explore by Exams</h2>
 
-      <div style={{
-        display: "flex",
-        gap: "20px",
-        flexWrap: "wrap"
-      }}>
-        {courses.map(course => (
-          <div key={course.id} style={{
-            width: "250px",
-            border: "1px solid #ddd",
-            borderRadius: "10px",
-            overflow: "hidden",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
-          }}>
-            <img
-              src={course.image}
-              alt={course.title}
-              style={{ width: "100%", height: "150px", objectFit: "cover" }}
-            />
-            <div style={{ padding: "10px" }}>
-              <h4>{course.title}</h4>
-              <p>👨‍🏫 {course.instructor}</p>
-            </div>
+        <div style={{
+          display: "flex",
+          gap: "20px",
+          flexWrap: "wrap"
+        }}>
+
+          {/* GOVERNMENT */}
+          <div style={cardStyle}>
+            <h3>🏛 Government Exams</h3>
+            <ul>
+              <li>Banking</li>
+              <li>SSC</li>
+              <li>Railways</li>
+              <li>Teaching</li>
+              <li>FCI</li>
+              <li>UGC NET</li>
+            </ul>
           </div>
-        ))}
+
+          {/* STATE */}
+          <div style={cardStyle}>
+            <h3>📍 State Exams</h3>
+            <ul>
+              <li>West Bengal</li>
+              <li>Bihar</li>
+              <li>Odisha</li>
+              <li>UP</li>
+              <li>Tamil Nadu</li>
+            </ul>
+          </div>
+
+          {/* ENGINEERING */}
+          <div style={cardStyle}>
+            <h3>⚙️ AE / JE Exams</h3>
+            <ul>
+              <li>Civil</li>
+              <li>Electrical</li>
+              <li>Mechanical</li>
+              <li>Computer Science</li>
+            </ul>
+          </div>
+
+          {/* IT & CSE */}
+          <div style={cardStyle}>
+            <h3>💻 IT & CSE Exams</h3>
+            <ul>
+              <li>GATE CS</li>
+              <li>ISRO</li>
+              <li>DRDO</li>
+              <li>Software Jobs</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
 
       {/* 📖 SUBJECTS */}
-      <h2 style={{ marginTop: "40px" }}>Subjects</h2>
+      <div style={{ padding: "20px" }}>
+        <h2>📖 Subjects</h2>
 
-      <div style={{ display: "flex", gap: "30px", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "30px", flexWrap: "wrap" }}>
 
-        <div>
-          <h3>💻 Computer Science</h3>
-          <ul>
-            <li>DBMS</li>
-            <li>Operating System</li>
-            <li>Computer Networks</li>
-            <li>Data Structures</li>
-            <li>Algorithms</li>
-            <li>Software Engineering</li>
-            <li>OOP</li>
-            <li>Compiler Design</li>
-          </ul>
+          <div>
+            <h3>💻 CSE</h3>
+            <ul>
+              <li>DBMS</li>
+              <li>Operating System</li>
+              <li>Computer Networks</li>
+              <li>Data Structures</li>
+              <li>Algorithms</li>
+              <li>Software Engineering</li>
+              <li>OOP</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>📊 Data Science</h3>
+            <ul>
+              <li>Python</li>
+              <li>Machine Learning</li>
+              <li>Deep Learning</li>
+              <li>Statistics</li>
+              <li>Data Visualization</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>🧮 Math & Aptitude</h3>
+            <ul>
+              <li>Quantitative Aptitude</li>
+              <li>Arithmetic</li>
+              <li>Algebra</li>
+              <li>Probability</li>
+              <li>Reasoning</li>
+            </ul>
+          </div>
+
         </div>
-
-        <div>
-          <h3>📊 Data Science</h3>
-          <ul>
-            <li>Python</li>
-            <li>Machine Learning</li>
-            <li>Deep Learning</li>
-            <li>Statistics</li>
-            <li>Data Visualization</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>🧮 Aptitude</h3>
-          <ul>
-            <li>Arithmetic</li>
-            <li>Algebra</li>
-            <li>Geometry</li>
-            <li>Probability</li>
-            <li>Reasoning</li>
-          </ul>
-        </div>
-
       </div>
 
       {/* 👨‍🏫 FACULTY */}
-      <h2 style={{ marginTop: "40px" }}>Our Faculty</h2>
+      <div style={{ padding: "20px", background: "#f8f8f8" }}>
+        <h2>👨‍🏫 Our Faculty</h2>
 
-      <div style={{
-        display: "flex",
-        gap: "20px",
-        flexWrap: "wrap"
-      }}>
-        {[
-          { name: "Arghya Sir", subject: "Networking" },
-          { name: "Suman Sir", subject: "DBMS" },
-          { name: "Sampad Sir", subject: "Aptitude" }
-        ].map((teacher, i) => (
-          <div key={i} style={{
-            padding: "15px",
-            border: "1px solid #ddd",
-            borderRadius: "10px",
-            width: "200px",
-            textAlign: "center"
-          }}>
-            <h4>{teacher.name}</h4>
-            <p>{teacher.subject}</p>
-          </div>
-        ))}
+        <div style={{
+          display: "flex",
+          gap: "20px",
+          flexWrap: "wrap"
+        }}>
+          {[
+            { name: "Arghya Sir", subject: "Networking" },
+            { name: "Suman Sir", subject: "DBMS" },
+            { name: "Sampad Sir", subject: "Aptitude" }
+          ].map((teacher, i) => (
+            <div key={i} style={cardStyle}>
+              <h4>{teacher.name}</h4>
+              <p>{teacher.subject}</p>
+            </div>
+          ))}
+        </div>
       </div>
+
+      
 
     </div>
   );
 }
+
+/* 🔥 REUSABLE CARD STYLE */
+const cardStyle = {
+  background: "#fff",
+  padding: "15px",
+  borderRadius: "10px",
+  width: "250px",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
+};
+
+
 
 export default Home;

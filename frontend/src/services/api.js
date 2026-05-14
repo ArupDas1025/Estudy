@@ -1,8 +1,10 @@
+// ```javascript id="a1b2c3"
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:4500/api",
+  baseURL: "/api",
   withCredentials: true,
 });
 
 export default API;
+// ```

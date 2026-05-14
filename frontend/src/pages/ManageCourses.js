@@ -26,7 +26,7 @@ function ManageCourses() {
     if (!window.confirm("Are you sure to delete?")) return;
 
     try {
-      await API.delete(`/courses/${id}`);
+      await API.delete(`/api/courses/${id}`);
       setMessage("Course deleted");
       fetchCourses();
     } catch (err) {

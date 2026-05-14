@@ -10,7 +10,7 @@ const {
   editCourses,
 } = require("../controllers/coursecontroller");
 
-router.get("/",auth,roleAuth(["admin", "teacher"]), getCourses);
+router.get("/",auth,roleAuth(["admin", "teacher",'student']), getCourses);
 router.put("/:id",auth,roleAuth(["admin", "teacher"]), editCourses);
 // router.get("/:id", getCourseById);
 // router.post("/enroll", auth, enroll);

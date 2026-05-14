@@ -1,0 +1,19 @@
+# ```yaml id="j1k2l3"
+services:
+  react-frontend:
+    build: .
+    container_name: Estudy_frontend
+
+    ports:
+      - "4000:4000"
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    stdin_open: true
+    tty: true
+
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+# ```

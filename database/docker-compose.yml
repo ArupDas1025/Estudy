@@ -1,0 +1,22 @@
+# ```yaml id="a8b9c0"
+services:
+  postgres:
+    image: postgres:14
+    container_name: estudy_postgres
+    restart: always
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: estudy
+
+    ports:
+      - "5430:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./estudy.sql:/docker-entrypoint-initdb.d/estudy.sql
+
+volumes:
+  postgres_data:
+# ```

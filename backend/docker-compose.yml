@@ -1,0 +1,31 @@
+# ```yaml id="p7q8r9"
+services:
+  backend:
+    build: .
+    container_name: estudy_backend
+
+    restart: always
+
+    ports:
+      - "4500:4500"
+
+    environment:
+      PORT: 4500
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: estudy_postgres
+      DB_PORT: 5432
+      DB_NAME: estudy
+      JWT_SECRET: Arupdas1025
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    networks:
+      - estudy_network
+
+networks:
+  estudy_network:
+    external: true
+# ```

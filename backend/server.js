@@ -14,16 +14,16 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-  origin: "http://localhost:4000",
+  origin: true,
   credentials: true,
 }));
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("🚀 Server is running on http://localhost:4500");
+  res.send("🚀 Server is running on http://192.168.21.59");
 });
-app.use("/api/auth", require("./routes/authroutes"));
-app.use("/api/courses", require("./routes/courseroutes"));
+app.use("/auth", require("./routes/authroutes"));
+app.use("/courses", require("./routes/courseroutes"));
 // app.use("/api/user", require("./routes/user.routes"));
 
 
